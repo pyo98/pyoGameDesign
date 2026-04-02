@@ -5,7 +5,7 @@
 
 ## 링크
 
-[문서보기](https://bundang.sbsgameacademy.com/2025/academy/location.asp)
+[GDD](https://pyogamedesign.netlify.app/pages/page01)
 
 [노션링크](https://www.notion.so/32eddf350982804491b3df4c393fd1c0?source=copy_link)
 
