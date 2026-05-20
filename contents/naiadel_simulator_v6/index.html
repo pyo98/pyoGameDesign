@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NAIADEL RPG Simulator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="top-hud">
+      <div class="brand">
+        <span class="brand-mark">NAIADEL</span>
+        <span class="brand-sub">RPG Combat Simulator</span>
+      </div>
+      <div class="hud-stat identity">
+        <span id="className">기사</span>
+        <strong>Lv.<span id="playerLevel">1</span></strong>
+      </div>
+      <div class="bar-group">
+        <div class="bar-label"><span>HP</span><strong id="hpText">0 / 0</strong></div>
+        <div class="bar hp"><span id="hpBar"></span></div>
+      </div>
+      <div class="bar-group">
+        <div class="bar-label"><span>MP</span><strong id="mpText">0 / 0</strong></div>
+        <div class="bar mp"><span id="mpBar"></span></div>
+      </div>
+      <div class="bar-group exp-group">
+        <div class="bar-label"><span>EXP</span><strong id="expText">0 / 100</strong></div>
+        <div class="bar exp"><span id="expBar"></span></div>
+      </div>
+      <div class="hud-stat solar">솔라르 <strong id="solarText">0</strong></div>
+    </header>
+
+    <main class="layout">
+      <section class="field-panel">
+        <div class="field-toolbar">
+          <button id="spawnBtn">몬스터 소환</button>
+          <button id="resetCombatBtn">전투 초기화</button>
+          <button id="debugBtn" aria-pressed="false">디버그 표시</button>
+          <span class="hint">우클릭 이동 · 몬스터 좌클릭 기본 공격/대상 선택 · Q/W/E 스킬</span>
+        </div>
+        <div id="battlefield" class="battlefield" oncontextmenu="return false;">
+          <div class="field-grid"></div>
+          <div id="rangeLayer" class="range-layer"></div>
+          <div id="fxLayer" class="fx-layer"></div>
+          <div id="playerUnit" class="unit player"></div>
+          <div id="monsterUnit" class="unit monster hidden"></div>
+          <div id="moveMarker" class="move-marker hidden"></div>
+        </div>
+      </section>
+
+      <aside class="side-panel">
+        <section class="panel-card target-card">
+          <h2>대상 정보</h2>
+          <div id="targetInfo" class="target-info empty">몬스터를 소환하거나 선택하면 정보가 표시된다.</div>
+        </section>
+
+        <section class="panel-card log-card">
+          <h2>전투 로그</h2>
+          <div id="combatLog" class="combat-log"></div>
+        </section>
+
+        <section class="panel-card details-card">
+          <h2>캐릭터 상세</h2>
+          <div id="characterDetails" class="details-grid"></div>
+        </section>
+      </aside>
+    </main>
+
+    <footer class="bottom-hud">
+      <div class="input-help">기본 공격: <strong>몬스터 좌클릭</strong> / 이동: <strong>마우스 우클릭</strong></div>
+      <div id="skillSlots" class="skill-slots"></div>
+    </footer>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
